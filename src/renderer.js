@@ -10,7 +10,16 @@ document.getElementById('myButton').addEventListener('click', () => {
     const viewerEle = document.getElementById('viewer');
     viewerEle.innerHTML = ''; 
     const iframe = document.createElement('iframe');
+    iframe.setAttribute("id", "pdf-iframe");
+    iframe.setAttribute("onLoad", "addPDFListener()");
     iframe.src = path.resolve(__dirname, `../public/pdfjs/web/viewer.html?file=${filePath}`);
     viewerEle.appendChild(iframe);
+    iframe.onload = function() {
+      var ifr =document.getElementById('pdf-iframe');
+      ifr.contentDocument.body.addEventListener('contextmenu', function(){
+        var idoc= ifr.contentDocument || ifr.contentWindow.document; // ie compatibility
+        console.log(idoc.getSelection().toString());
+      });
+    }
   });
 });
