@@ -5,15 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/main.css">
-    <title>Select pdf</title>
+    <title>MindTheWord-Desktop</title>
 </head>
-<body>
-    <div class='picker'>
-      <button id='myButton'>Select PDF to view</button>
+<body id="content">
+    <div id="sidebar" class="toggle-sidebar">
+      <div id="view-controls-container">
+        <div id="add-tab" class="tab functional-tab">
+          <div class="server-tab" id="add-action">
+            <i class="material-icons">open_in_browser</i>
+          </div>
+          <span id="add-server-tooltip" style="display:none">Open PDF</span>
+        </div>
+      </div>
+      <div id="actions-container">
+        <div class="action-button" id="info-action">
+          <i class="material-icons md-48">info</i>
+          <span id="info-tooltip" style="display:none">Info</span>
+        </div>
+        <div class="action-button" id="quiz-action">
+          <i class="material-icons md-48">question_answer</i>
+          <span id="quiz-tooltip" style="display:none">Quiz</span>
+        </div>
+        <div class="action-button" id="save-action">
+          <i class="material-icons md-48">save_alt</i>
+          <span id="save-tooltip" style="display:none">Saved</span>
+        </div>
+        <div class="action-button" id="setting-action">
+          <i class="material-icons md-48">settings</i>
+          <span id="setting-tooltip" style="display:none">Settings</span>
+        </div>
+      </div>
+    </div>
+    <!-- <div id="main-container"> -->
+      <!-- <div id="webviews-container"> -->
+        <div class='viewer' id='viewer'>
+
+        </div>
+      <!-- </div> -->
+    <!-- </div> -->
+
+    <div id="settings">
+      <div class="settings-card certificates-card">
+				<div class="certificate-input">
+					<div class="key-def">Yandex Key</div>
+					<input id="key-input" class="setting-input-value" autofocus placeholder=""/>
+					<button id="set-yandex-key" class="green" id="add-certificate-button">Set</button>
+				</div>
+			</div>
     </div>
 
-    <div class='viewer' id='viewer'>
-
+    <div id="right-sidebar">
+      <div class="sidebar-items">
+        <div class="item">
+          <div class="item-head">Selected Word</div>
+          <input id="selected-word" class="setting-input-value" autofocus/>
+        </div>
+        <div class="item">
+          <div class="item-head">Translated</div>
+          <input class="setting-input-value" autofocus/>
+        </div>
+        <div class="item">
+          <div class="item-head">Pronunciation</div>
+          <input class="setting-input-value" autofocus/>
+        </div>
+        <div class="button-group">
+          <div class="item">
+            <button class="green" id="sidebar-button">Mark As Learnt</button>
+          </div>
+          <div class="item">
+            <button class="green" id="sidebar-button">Save Translation</button>
+          </div>
+          <div class="item">
+            <button class="green" id="sidebar-button">More Info</button>
+          </div>
+          <div class="item">
+            <button class="green" id="sidebar-button">Visual Help</button>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script>

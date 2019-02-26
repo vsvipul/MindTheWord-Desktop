@@ -1,12 +1,15 @@
 const { app, BrowserWindow } = require('electron');
-const path = require('path');
-const os = require('os');
+const storage = require('electron-json-storage');
 
 let win;
 
 function createWindow () {
   win = new BrowserWindow({ width: 800, height: 600 });
   win.loadFile('src/index.html');
+  win.maximize();
+  win.webContents.on('did-finish-load', function() {
+    win.webContents.send('set-keys');
+  });
   win.on('closed', () => {
     win = null
   });
