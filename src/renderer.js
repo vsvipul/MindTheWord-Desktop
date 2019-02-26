@@ -32,8 +32,15 @@ var loadPDF = (filepaths) => {
 }
 
 document.getElementById('setting-action').addEventListener('click', () => {
-  document.getElementById('viewer').style.display = "none";
-  document.getElementById('settings').style.display = "block";
+  if (settings.style.display == "none"){
+    document.getElementById('viewer').style.display = "none";
+    document.getElementById('settings').style.display = "block";
+  }
+  else {
+    document.getElementById('viewer').style.display = "block";
+    document.getElementById('settings').style.display = "none";
+  }
+  
 });
 
 document.getElementById('set-yandex-key').addEventListener('click', () => {
